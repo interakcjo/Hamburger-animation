@@ -1,0 +1,73 @@
+$color1: #211B33;
+$color2: #FF7700;
+
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $color1;
+}
+
+.hamburger {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 40px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    // remove outline if you want
+    outline: 0;
+    &__line {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: $color2;
+        left: 0;
+        border-radius: 100px;
+        transition: width .2s linear, transform .5s linear, opacity .5s linear;
+        &:nth-child(1) {
+            top: 0;
+        }
+        &:nth-child(2) {
+            top: calc(50% - 1.5px);
+            width: 30px;
+            right: 0;
+            left: auto
+        }
+        &:nth-child(3) {
+            bottom: 0;
+        }
+    }
+    &:hover {
+        .hamburger__line {
+            &:nth-child(2) {
+                width: 100%;
+            }
+        }
+    }
+    &.active {
+        .hamburger__line {
+            &:nth-child(1) {
+                top: calc(50% - 1.5px);
+                left: calc(50% - 25px);
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                width: 0;
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                top: calc(50% - 1.5px);
+                left: calc(50% - 25px);
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

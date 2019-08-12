@@ -1,0 +1,76 @@
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #211B33;
+}
+
+.hamburger {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50px;
+  height: 40px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+}
+
+.hamburger__line {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #FF7700;
+  left: 0;
+  border-radius: 100px;
+  -webkit-transition: width .2s linear, opacity .5s linear, -webkit-transform .5s linear;
+  transition: width .2s linear, opacity .5s linear, -webkit-transform .5s linear;
+  transition: width .2s linear, transform .5s linear, opacity .5s linear;
+  transition: width .2s linear, transform .5s linear, opacity .5s linear, -webkit-transform .5s linear;
+}
+
+.hamburger__line:nth-child(1) {
+  top: 0;
+}
+
+.hamburger__line:nth-child(2) {
+  top: calc(50% - 1.5px);
+  width: 30px;
+  right: 0;
+  left: auto;
+}
+
+.hamburger__line:nth-child(3) {
+  bottom: 0;
+}
+
+.hamburger:hover .hamburger__line:nth-child(2) {
+  width: 100%;
+}
+
+.hamburger.active .hamburger__line:nth-child(1) {
+  top: calc(50% - 1.5px);
+  left: calc(50% - 25px);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.hamburger.active .hamburger__line:nth-child(2) {
+  width: 0;
+  opacity: 0;
+}
+
+.hamburger.active .hamburger__line:nth-child(3) {
+  top: calc(50% - 1.5px);
+  left: calc(50% - 25px);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+/*# sourceMappingURL=style.css.map */
